@@ -1,5 +1,7 @@
+"use client"
 
 import { Heart, Bookmark, Share2, } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import {
   Card,
@@ -16,6 +18,7 @@ import { Button } from "./ui/button";
 
 
 interface ArticleCardProps {
+  id: number;
   title: string;
   description: string;
   content: string;
@@ -25,19 +28,22 @@ interface ArticleCardProps {
 }
 
 
-export const ArticleCard = ({ title, description, content, postedBy, postedOn, avatar }: ArticleCardProps) => {
+export const ArticleCard = ({ id, title, description, content, postedBy, postedOn, avatar }: ArticleCardProps) => {
+  const router = useRouter();
+
   return (
-    <div className="">
-      <Card className="flex justify-between bg-violet-700 rounded-xl pb-0">
-        <div>
-          <CardHeader>
+    <div className="mx-auto">
+      <Card className="flex bg-primary/10 rounded-xl cursor-pointer
+                hover:opacity-75 transition border-0 pb-0">
+        <div className="w-2/3">
+          <CardHeader className="pb-3 pt-5 space-y-1">
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pb-3">
             <p>{content}</p>
           </CardContent>
-          <CardFooter className="flex flex-col items-start gap-6">
+          <CardFooter className="flex flex-col items-start gap-3 pb-5">
             <div className="flex gap-3">
               <div className="flex items-center">
                 <Avatar className="h-7 w-7">
@@ -51,22 +57,22 @@ export const ArticleCard = ({ title, description, content, postedBy, postedOn, a
               </div>
             </div>
             <div className="flex gap-72">
-              <Button variant="premium" size="sm">Read article</Button>
+              <Button variant="premium" size="sm" onClick={() => router.push(`/article/${id}`)}>Read article</Button>
               <div className="flex items-center gap-1">
-                <Button variant="secondary" size="xxs">
-                  <Heart className="text-red-700 h-3 w-3"/>
+                <Button variant="default" size="xxs">
+                  <Heart className="text-red-700 h-3 w-3" />
                 </Button>
-                <Button variant="secondary" size="xxs">
-                  <Bookmark className="text-yellow-700 h-3 w-3"/>
+                <Button variant="default" size="xxs">
+                  <Bookmark className="text-yellow-700 h-3 w-3" />
                 </Button>
-                <Button variant="secondary" size="xxs">
-                  <Share2 className="text-blue-700 h-3 w-3"/>
+                <Button variant="default" size="xxs">
+                  <Share2 className="text-blue-700 h-3 w-3" />
                 </Button>
               </div>
             </div>
           </CardFooter>
         </div>
-        <div>
+        <div className="w-1/3">
           <img
             src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
             className="rounded-r-lg h-full"

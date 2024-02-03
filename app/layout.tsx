@@ -21,15 +21,15 @@ export default function RootLayout({
 }) {
   return (
     // <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("bg-secondary", inter.className)}>
         <ThemeProvider attribute="class"
-            defaultTheme="system"
-            enableSystem>
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
+          defaultTheme="system"
+          enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
     // </ClerkProvider>
   )
 }

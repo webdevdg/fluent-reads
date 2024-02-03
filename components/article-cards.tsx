@@ -3,6 +3,7 @@ import { ArticleCard } from "./article-card";
 
 const articlesData = [
     {
+        id: 1,
         title: "The first article",
         description: "This is the great great first article",
         content: "First few words of the first article...",
@@ -11,6 +12,7 @@ const articlesData = [
         avatar: "https://github.com/shadcn.png",
     },
     {
+        id: 2,
         title: "The second article",
         description: "This is the great great second article",
         content: "First few words of the second article...",
@@ -19,6 +21,7 @@ const articlesData = [
         avatar: "https://github.com/shadcn.png",
     },
     {
+        id: 3,
         title: "The third article",
         description: "This is the great great third article",
         content: "First few words of the third article...",
@@ -27,6 +30,7 @@ const articlesData = [
         avatar: "https://github.com/shadcn.png",
     },
     {
+        id: 4,
         title: "The fourth article",
         description: "This is the great great fourth article",
         content: "First few words of the fourth article...",
@@ -38,8 +42,7 @@ const articlesData = [
 
 const ArticleCards = () => {
     return (
-        <div className="px-2 py-10 grid grid-cols-1 sm:grid-cols-1 
-        md:grid-cols-2 lg:gird-cols-2 xl:grid-cols-2 gap-3">
+        <div className="mx-auto w-[60%] px-24 py-16 mt-8 rounded-lg flex flex-col gap-5 bg-secondary">
             {articlesData.map((article, index) => (
 
                 <ArticleCard
