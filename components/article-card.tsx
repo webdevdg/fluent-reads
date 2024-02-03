@@ -18,7 +18,7 @@ import { Button } from "./ui/button";
 
 
 interface ArticleCardProps {
-  id: number;
+  id: string;
   title: string;
   description: string;
   content: string;
